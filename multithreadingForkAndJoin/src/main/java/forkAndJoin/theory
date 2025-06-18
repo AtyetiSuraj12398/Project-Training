@@ -1,0 +1,6 @@
+Using fork join pool we will use our cpu efficiently
+
+fork => splitting task into subtask and execute those subtask on multiple threads
+join => joining the result of all subtask into a single task. then root task will return result
+
+also there is concept of work stealing if two threads have scheduled multiple tasks if thread 1 finished executing all task then thread 1 can steal task from thread 2 as well
