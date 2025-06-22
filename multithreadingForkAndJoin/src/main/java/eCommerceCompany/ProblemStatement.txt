@@ -1,0 +1,80 @@
+📝 Assignment: Parallel Category-Wise Revenue Analysis Using Fork/Join
+✅ Problem Statement:
+You are part of the analytics team at an e-commerce company.
+Every day, your system records millions of transactions. Each transaction contains:
+
+A transaction amount (e.g., ₹499.99)
+
+A category (e.g., Electronics, Clothing, Home & Kitchen, etc.)
+
+Your task is to calculate the total revenue for each category using parallel computation with the Fork/Join Framework.
+
+🧾 Sample Data (Simulated):
+Each record is like:
+
+{ amount: 299.99, category: "Clothing" }
+{ amount: 1549.00, category: "Electronics" }
+{ amount: 499.00, category: "Home & Kitchen" }
+...
+You will simulate this using a list of randomly generated transactions with 5-10 categories.
+
+🎯 Learning Objectives:
+Use the Fork/Join Framework for concurrent computation.
+
+Learn to aggregate data in parallel across multiple categories.
+
+Understand how parallelism helps in big data-style tasks.
+
+📦 Input:
+A list of 10 million transaction records, each with:
+
+a double amount
+
+a String category
+
+🧭 How to Approach (Without Code):
+1. Understand the Real-World Application:
+The finance team needs daily revenue per category.
+
+The volume of data is too large for sequential computation to be fast enough.
+
+2. Break Down the Problem:
+Your overall task is:
+Map<String category, Double totalRevenue>
+
+If the list is large (say > 100,000 records), split into two subtasks:
+
+Each subtask will calculate category-wise sums on a smaller subset.
+
+After completion, merge the two maps from subtasks.
+
+3. Define RecursiveTask:
+Extend RecursiveTask<Map<String, Double>>
+
+On base case:
+
+Loop through assigned portion of list
+
+Aggregate revenue by category (store in a map)
+
+On recursive case:
+
+Split list in two
+
+Fork both subtasks
+
+Join and merge the results
+
+4. Use ForkJoinPool:
+Initialize ForkJoinPool in the main method.
+
+Submit your top-level task.
+
+Wait and retrieve final Map<String, Double> with revenue per category.
+
+5. Validate and Compare:
+Also do a sequential version using simple for loop and Map.
+
+Print both results to confirm correctness.
+
+Measure time taken by both methods.

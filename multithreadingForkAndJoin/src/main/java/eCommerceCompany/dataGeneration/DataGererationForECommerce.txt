@@ -1,0 +1,9 @@
+Generate Transaction Data Using Fork/Join
+✅ New Mini Problem Statement:
+You have to generate 10 million random e-commerce transactions in parallel using the Fork/Join framework.
+
+Each transaction should include:
+
+A random double amount based on the chosen category
+
+A random String category from a predefined list
